@@ -1,0 +1,78 @@
+<!-- String Interpolation -->
+
+<h1>{{mytitle}}</h1>
+
+<!-- Property Binding -->
+
+<h2 [innerHtml]="desc" ></h2>
+<img [src]="img" />
+
+<!-- Two-Way Binding -->
+
+<h2>two way binding</h2> <br>
+
+<p>we gonna use ngmodels for two ways binding  </p>
+
+<input type="text" [(ngModel)]="favlanguage" />
+
+<p>{{favlanguage}}</p>
+
+
+<!-- Template Reference Variable -->
+<h2>Template Reference Variable</h2>
+
+<input type="text" #myInput>
+<button (click)="logValue(myInput.value)">Log Value</button>
+
+
+
+
+<!--ngif -->
+<!--first exemple -->
+
+<h1>learn ngIf</h1>
+
+<div *ngIf="isVisible">
+    This element is visible
+  </div>
+  <button (click)="toggleVisibility()">Toggle Visibility</button>
+  <!--2nd exemple -->
+  <br>
+  <br>
+
+  <input type="text" [value]="moviename" (input)="handlechange($event)">
+  <p>{{moviename}}</p>
+
+  <ng-container *ngIf="moviename.length ;then movielist ; else nomovies">
+  </ng-container>
+
+  <ng-template #movielist>
+    <p>here is the list</p>
+  </ng-template>
+
+
+  <ng-template #movielist>
+    <p>here is the list</p>
+  </ng-template>
+
+  
+  <ng-template #nomovies>
+    <p>no movies</p>
+  </ng-template>
+
+
+  
+  
+<!--ngFor -->
+
+<ul>
+    <li *ngFor="let movie of movies">
+       <p>{{ movie.id }}</p>
+       <p>{{ movie.name }}</p>
+       <p>{{ movie.releasedate }}</p>
+    </li>
+  </ul>
+  
+
+
+
